@@ -24,12 +24,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const [isDark, setIsDark] = useState(false);
-
-  // function onClickMoonIcon() {
-  //   setIsDark(!isDark);
-  // }
-
   return (
     <html lang="en">
       <Skelton data={{ geistSans, geistMono, children }} />
