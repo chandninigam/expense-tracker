@@ -3,6 +3,7 @@
   --foreground: #171717;
   --header-bg: #1f2937;
   --header-color: #ffffff;
+  --btn-login-bg: #3b82f6;
 }
 
 body.dark {
@@ -10,11 +11,13 @@ body.dark {
   --foreground: #ededed;
   --header-bg: #ffffff;
   --header-color: #1f2937;
+  --btn-login-bg: #3b82f6;
 }
 
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -35,4 +38,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.nextjs-toast-errors-parent,
+.nextjs-portal {
+  display: none !important;
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../style/globals.css";
 import Skelton from "@/components/skelton";
-// import { useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -38,19 +38,24 @@ export default function Skelton({ data }: Props) {
             </header>
             <div onClick={onClickMoonIcon} className="theme-icon">
               <FaSun
-                className={`icon fa-sun ${isDark ? "hidden" : "visible"}`}
+                className={`icon fa-sun ${isDark ? "visible" : "hidden"}`}
               />
               <FaMoon
-                className={`icon fa-moon ${isDark ? "visible" : "hidden"}`}
+                className={`icon fa-moon ${isDark ? "hidden" : "visible"}`}
               />
             </div>
+            <button className="btn-login">Login</button>
           </div>
           <div className="tabs-wrapper">
             <Link href="/">Home</Link>
             <Link href="/analytics">Analytics View</Link>
           </div>
         </div>
-        <div> {data.children}</div>
+        <main> {data.children}</main>
+
+        <footer>
+          <p>© 2025 Expense Tracker. All rights reserved.</p>
+        </footer>
       </div>
     </body>
   );

@@ -1,17 +1,24 @@
 .skelton-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
 .tag-header-wrapper {
   background-color: var(--header-bg);
   color: var(--header-color);
   padding: 1rem 2rem;
 }
+
 .header-mode {
   display: flex;
   justify-content: space-between;
 }
+
 header {
   padding-bottom: 2rem;
 }
+
 .theme-icon {
   position: relative;
   width: 40px;
@@ -20,6 +27,7 @@ header {
   border: none;
   cursor: pointer;
 }
+
 .icon {
   position: absolute;
   top: 0;
@@ -29,26 +37,67 @@ header {
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .fa-sun {
   width: 20px;
   color: var(--header-color);
 }
+
 .fa-moon {
   width: 20px;
   color: var(--header-color);
 }
+
 .hidden {
   opacity: 0;
   transform: scale(0.8) rotate(45deg);
   pointer-events: none;
 }
+
 .visible {
   opacity: 1;
   transform: scale(1) rotate(0deg);
   pointer-events: auto;
 }
+
+.btn-login {
+  height: fit-content;
+  padding: 10px 20px;
+  background-color: var(--btn-login-bg);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  background-color: #1d4ed8;
+}
+
 .tabs-wrapper {
   display: flex;
-  /* justify-content: ; */
   gap: 5rem;
+}
+
+main {
+  display: flex;
+  flex: 1;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 0;
+  background-color: var(--header-bg);
+  color: var(--header-color);
 }
