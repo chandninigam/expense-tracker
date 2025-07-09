@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../style/globals.css";
-import Skelton from "@/components/skelton";
+
+import { ExpenseProvider } from "@/context/ExpenseContext";
+import Skelton from "@/components/skelton/skelton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Skelton data={{ geistSans, geistMono, children }} />
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ExpenseProvider>
+          <Skelton>{children}</Skelton>
+        </ExpenseProvider>
+      </body>
     </html>
   );
 }

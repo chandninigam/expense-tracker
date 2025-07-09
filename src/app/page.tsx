@@ -1,12 +1,12 @@
 "use client";
-import "../style/home.css";
+import ExpenseForm from "@/components/ExpenseForm/expenseForm";
+import styles from "../style/page.module.css";
 
-export default function Home() {
+export default function ExpenseTrackerPage() {
   return (
-    <div className="hero-form-wrapper">
-      <div>
-        <h3>Let&apos;s Add an Expense</h3>
-      </div>
+    <div className={styles.heroFormWrapper}>
+      <ExpenseForm />
+      <div></div>
     </div>
   );
 }
