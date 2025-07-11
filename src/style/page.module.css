@@ -3,4 +3,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem;
+  margin: 0rem 1rem;
+  gap: 5rem;
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  margin: 0rem 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  width: 40%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px #0000000d;
+  height: 75vh;
+}
+
+.list {
+  flex: 1;
+  overflow: scroll;
+}
+
+.expenseList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallbackExpenseList {
+  display: flex;
+  height: 100%;
+  opacity: 0.2;
+  justify-content: center;
+  align-items: center;
 }

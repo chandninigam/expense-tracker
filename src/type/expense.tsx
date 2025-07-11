@@ -9,4 +9,5 @@ export type Expense = {
 export type ExpenseContextType = {
   expenses: Expense[];
   addExpense: (expense: Expense) => void;
+  removeExpense: (uniqueId: string) => void;
 };

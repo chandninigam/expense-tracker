@@ -11,8 +11,13 @@ export const ExpenseProvider = ({ children }: { children: ReactNode }) => {
     setExpenses((prev) => [...prev, expense]);
   };
 
+  const removeExpense = (uniqueId: string) => {
+    const res = expenses.filter((ex: Expense) => ex.id !== uniqueId);
+    setExpenses(res);
+  };
+
   return (
-    <ExpenseContext.Provider value={{ expenses, addExpense }}>
+    <ExpenseContext.Provider value={{ expenses, addExpense, removeExpense }}>
       {children}
     </ExpenseContext.Provider>
   );
