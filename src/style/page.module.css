@@ -26,12 +26,20 @@
 .list {
   flex: 1;
   overflow: scroll;
+  scrollbar-width: none;
 }
 
-.expenseList {
+.expenseListHeader {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.amountTxt {
+  font-weight: 600;
 }
 
 .fallbackExpenseList {

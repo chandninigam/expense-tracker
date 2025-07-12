@@ -23,8 +23,9 @@ export default function ExpenseForm() {
 
   const handleOnSubmitForm = (data: IFormData) => {
     const expense: Expense = {
-      id: uuidv4(),
       ...data,
+      id: uuidv4(),
+      amount: Number(data.amount),
     };
     addExpense(expense);
     reset();
@@ -40,7 +41,7 @@ export default function ExpenseForm() {
           <input
             type="number"
             placeholder="Amount"
-            {...register("amount", { required: true })}
+            {...register("amount", { required: true, valueAsNumber: true })}
           />
           {errors.amount && <p>Amount is required</p>}
         </div>
@@ -64,6 +65,7 @@ export default function ExpenseForm() {
           <input
             type="date"
             {...register("date", { required: true })}
+            max={new Date().toISOString().split("T")[0]}
             className="date"
           />
           {errors.date && <p>Date is required</p>}

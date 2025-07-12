@@ -5,67 +5,67 @@ import { RiDeleteBin6Line as Delete } from "react-icons/ri";
 const DummyData = [
   {
     id: "1",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "11",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "10",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "9",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "8",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "7",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "6",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "5",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "4",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "3",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
   {
     id: "2",
-    amount: "10",
+    amount: 10,
     category: "rent",
     date: "12/01/2025",
   },
@@ -100,22 +100,26 @@ export function SingleExpenseUI(props: { expense: Expense; index: number }) {
 export default function ExpenseList({ expenses }: { expenses: Expense[] }) {
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Sno.</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {DummyData.map((exp: Expense, index: number) => {
-            return <SingleExpenseUI expense={exp} index={index} key={index} />;
-          })}
-        </tbody>
-      </table>
+      <div className="">
+        <table>
+          <thead>
+            <tr>
+              <th>Sno.</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {DummyData.map((exp: Expense, index: number) => {
+              return (
+                <SingleExpenseUI expense={exp} index={index} key={index} />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
