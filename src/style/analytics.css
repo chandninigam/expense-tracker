@@ -1,0 +1,36 @@
+.analytics-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-wrapper {
+  margin: 1rem auto;
+  width: 80%;
+  height: fit-content;
+  min-height: 300px;
+  background-color: aliceblue;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.chart-wrapper h3 {
+  padding-bottom: 1rem;
+}
+
+.chart-detail-wrapper {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.chart-categories-wrapper .detail-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.2rem;
+}

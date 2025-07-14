@@ -83,3 +83,11 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #f1f1f1;
 }
+
+.fallback {
+  opacity: 0.2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
