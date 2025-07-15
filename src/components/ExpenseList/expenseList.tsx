@@ -2,6 +2,7 @@ import { useExpense } from "@/context/ExpenseContext";
 import { Expense } from "@/type/expense";
 import { RiDeleteBin6Line as Delete } from "react-icons/ri";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DummyData = [
   {
     id: "1",
@@ -112,7 +113,7 @@ export default function ExpenseList({ expenses }: { expenses: Expense[] }) {
             </tr>
           </thead>
           <tbody>
-            {DummyData.map((exp: Expense, index: number) => {
+            {expenses.map((exp: Expense, index: number) => {
               return (
                 <SingleExpenseUI expense={exp} index={index} key={index} />
               );
