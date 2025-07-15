@@ -43,7 +43,9 @@ export default function ExpenseForm() {
             placeholder="Amount"
             {...register("amount", { required: true, valueAsNumber: true })}
           />
-          {errors.amount && <p>Amount is required</p>}
+          {errors.amount && (
+            <p className="required-field">Amount is required.</p>
+          )}
         </div>
 
         {/* Category */}
@@ -56,7 +58,9 @@ export default function ExpenseForm() {
             <option value="food">Food</option>
             <option value="utilities">Utilities</option>
           </select>
-          {errors.category && <p>Category is required</p>}
+          {errors.category && (
+            <p className="required-field">Category is required.</p>
+          )}
         </div>
 
         {/* Date */}
@@ -68,7 +72,7 @@ export default function ExpenseForm() {
             max={new Date().toISOString().split("T")[0]}
             className="date"
           />
-          {errors.date && <p>Date is required</p>}
+          {errors.date && <p className="required-field">Date is required.</p>}
         </div>
 
         {/* Notes */}

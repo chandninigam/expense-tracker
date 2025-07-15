@@ -1,44 +1,53 @@
 import { useExpense } from "@/context/ExpenseContext";
 import { Expense } from "@/type/expense";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 export default function useGroupedExpenses() {
   const { expenses } = useExpense();
 
-  function monthYearlyData(expenseDate: string, isMonthly: boolean): boolean {
+  function isExpenseInMonthOrYear(
+    expenseDate: string,
+    isMonthly: boolean
+  ): boolean {
     const expDate = new Date(expenseDate);
     const todayDate = new Date();
 
-    if (isMonthly) {
-      return (
-        expDate.getMonth() === todayDate.getMonth() &&
-        expDate.getFullYear() === todayDate.getFullYear()
-      );
-    }
-
-    return expDate.getFullYear() === todayDate.getFullYear();
+    return isMonthly
+      ? expDate.getMonth() === todayDate.getMonth() &&
+          expDate.getFullYear() === todayDate.getFullYear()
+      : expDate.getFullYear() === todayDate.getFullYear();
   }
 
-  const getMontlyExpense = useMemo(
-    function getMontlyExpense(): Expense[] {
-      const filterByRecentMonth = expenses.filter((exp: Expense) => {
-        return monthYearlyData(exp.date, true);
+  const groupedCategoryMonthlyOrYearly = useCallback(
+    (expenses: Expense[], monthly: boolean) => {
+      const categoryByTotals: Record<string, number> = {};
+
+      expenses.forEach((expense) => {
+        if (isExpenseInMonthOrYear(expense.date, monthly)) {
+          categoryByTotals[expense.category] =
+            (categoryByTotals[expense.category] || 0) + expense.amount;
+        }
       });
 
-      return filterByRecentMonth;
+      const result = Object.entries(categoryByTotals).map(
+        ([category, amount]) => ({
+          category,
+          amount,
+        })
+      );
+      return result;
     },
-    [expenses]
+    []
+  );
+
+  const getMontlyExpense = useMemo(
+    () => groupedCategoryMonthlyOrYearly(expenses, true),
+    [expenses, groupedCategoryMonthlyOrYearly]
   );
 
   const getYearlyExpenses = useMemo(
-    function getYearlyExpense() {
-      const filterByYear = expenses.filter((exp: Expense) => {
-        return monthYearlyData(exp.date, false);
-      });
-
-      return filterByYear;
-    },
-    [expenses]
+    () => groupedCategoryMonthlyOrYearly(expenses, false),
+    [expenses, groupedCategoryMonthlyOrYearly]
   );
 
   const getMonthsGroupedByYear = useMemo(() => {
